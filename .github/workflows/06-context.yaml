@@ -11,6 +11,13 @@ env:
     MY_WORKFLOW_VAR: 'workflow'
     MY_OVERWRITTEN_VAR: 'workflow'
 jobs:
+    echoworkflow:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print ENVs
+              run: |
+                echo 'work flow $MY_WORKFLOW_VAR'
+
     echo:
         runs-on: ubuntu-latest
         env:
