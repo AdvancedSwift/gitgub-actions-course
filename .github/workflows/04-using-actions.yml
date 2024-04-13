@@ -3,8 +3,13 @@ on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+    defaults:
+      run:
+        working-directory: 04-using-actions/react-app
     # 0. Checkout the code from the repo
+    # 1. Setup Node
+    # 2. Install Dependencies
+    # 3. Run Unit test
     steps:
       - name: Checkoout Code
         uses: actions/checkout@v4
@@ -16,4 +21,6 @@ jobs:
           node-version: '16.x'
       - name: Install Dependencies
         run: npm ci
-        working-directory: 04-using-actions/react-app
+      - name: Run Unit test
+        run: npm run test
+        
