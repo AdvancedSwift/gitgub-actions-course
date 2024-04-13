@@ -4,3 +4,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
+    # 0. Checkout the code from the repo
+    steps:
+      - name: Checkoout code
+        uses: actions/checkout@v4
+      - name: Print Folders
+        run: ls
