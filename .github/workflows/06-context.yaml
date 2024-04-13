@@ -16,7 +16,7 @@ jobs:
         steps:
             - name: Print ENVs
               run: |
-                echo 'work flow env: $MY_WORKFLOW_VAR'
+                echo 'work flow env: ${{env.MY_WORKFLOW_VAR}}'
 
     echo:
         runs-on: ubuntu-latest
