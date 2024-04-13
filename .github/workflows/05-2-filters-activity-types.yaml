@@ -10,4 +10,4 @@ jobs:
     echo:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "pr crated"
+            - run: echo "pr closed"
