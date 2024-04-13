@@ -1,6 +1,8 @@
 name: 06 Contexts
 run-name: ${{github.event_name }}
-on: push
+on: 
+    push:
+    workflow_dispatch:
 jobs:
     echo:
         runs-on: ubuntu-latest
