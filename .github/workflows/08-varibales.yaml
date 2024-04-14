@@ -32,7 +32,7 @@ jobs:
             - name: Print vars
               run: |
                 echo "org var ${{vars.ORG_VAR}}"
-                echo "org var ${{varsOVERRITTEN_VAR}}"
+                echo "org var ${{vars.OVERRITTEN_VAR}}"
                 echo "rpo var ${{vars.MY_VAR}}"
     echo-prod:
         runs-on: ubuntu-latest
