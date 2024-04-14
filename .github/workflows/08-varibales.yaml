@@ -16,12 +16,12 @@ jobs:
               env:
                 STEP_VAR: "I am a step env"
               run: |
-                ehco "step var ${{env.STEP_VAR}}"
-                ehco "step var ${{env.JOB_VAR}}"
-                ehco "step var ${{env.WORKFLOW_VAR}}"
-                ehco "step var ${{env.OVERITTEN}}"
+                echo "step var ${{env.STEP_VAR}}"
+                echo "step var ${{env.JOB_VAR}}"
+                echo "step var ${{env.WORKFLOW_VAR}}"
+                echo "step var ${{env.OVERITTEN}}"
             - name: Overwritten
               env:
                 OVERITTEN: "over written in job other step"
               run: |
-                ehco "step var ${{env.OVERITTEN}}"
+                echo "step var ${{env.OVERITTEN}}"
