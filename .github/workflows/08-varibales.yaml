@@ -5,6 +5,7 @@ on:
 env:
     WORKFLOW_VAR: " i am workflow env"
     OVERITTEN: " workflow overwritten"
+    UNDEFINED: ${{vars.UNDEFINE || 'undefine'}}
 jobs:
     echo:
         runs-on: ubuntu-latest
@@ -33,3 +34,19 @@ jobs:
                 echo "org var ${{var.ORG_VAR}}"
                 echo "org var ${{var.OVERRITTEN_VAR}}"
                 echo "rpo var ${{var.MY_VAR}}"
+    echo-prod:
+        runs-on: ubuntu-latest
+        environment: Prod
+        steps:
+            - name: Print ENVs
+              run: |
+                echo "org var ${{var.TARGET_VAR}}"
+                echo "org var ${{var.OVERWRITTEN_VAR}}"
+    echo-undefined:
+        runs-on: ubuntu-latest
+        environment: Prod
+        steps:
+            - name: Print ENVs
+              run: |
+                    echo "org var ${{env.UNDEFINED"}}"
+
