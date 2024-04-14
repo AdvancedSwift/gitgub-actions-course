@@ -31,17 +31,17 @@ jobs:
         steps:
             - name: Print vars
               run: |
-                echo "org var ${{var.ORG_VAR}}"
-                echo "org var ${{var.OVERRITTEN_VAR}}"
-                echo "rpo var ${{var.MY_VAR}}"
+                echo "org var ${{vars.ORG_VAR}}"
+                echo "org var ${{varsOVERRITTEN_VAR}}"
+                echo "rpo var ${{vars.MY_VAR}}"
     echo-prod:
         runs-on: ubuntu-latest
         environment: Prod
         steps:
             - name: Print ENVs
               run: |
-                echo "org var ${{var.TARGET_VAR}}"
-                echo "org var ${{var.OVERWRITTEN_VAR}}"
+                echo "org var ${{vars.TARGET_VAR}}"
+                echo "org var ${{vars.OVERWRITTEN_VAR}}"
     echo-undefined:
         runs-on: ubuntu-latest
         environment: Prod
