@@ -6,8 +6,6 @@ jobs:
     ehco1:
         runs-on: ubuntu-latest
         steps:
-            - name: sleep for 20 sec
-              run: sleep 20
             - name: pr title
               run: echo ${{ github.event.pull_request.title }}
             - name: pr labels
@@ -18,6 +16,8 @@ jobs:
             - name: bug step
               if: ${{ !cancelled() && contains(github.event.pull_request.title, 'fix') }}
               run: echo "i am bug"
+            - name: sleep for 20 sec
+              run: sleep 20
             - name: Failing step
               run: exit 1
             - name: I will be executed
