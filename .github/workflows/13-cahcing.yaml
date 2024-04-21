@@ -6,6 +6,16 @@ on:
                 description: Use cache
                 type: boolean
                 default: true
+            node-version:
+                description: Node version
+                type: choice
+                options:
+                    - 18.x
+                    - 20.x
+                    - 21.x
+                default: 20.x
+                
+
 
 jobs:
     build:
@@ -19,7 +29,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                node-version: '20.x'
+                node-version: ${{inputs.node-version}}
             - name: Install Dependencis
               run: npm ci
             - name: Testing
@@ -27,4 +37,4 @@ jobs:
             - name: Building
               run: npm run build
             - name: Deploy
-              run: echo "Deploying "
+              run: echo "Deploying"
