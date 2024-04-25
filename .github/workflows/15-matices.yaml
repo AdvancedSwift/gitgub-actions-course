@@ -6,15 +6,29 @@ jobs:
         name: ${{matrix.os}} - ${{matrix.node-version}}
         runs-on: ${{matrix.os}}
         strategy:
+            fail-fast: false
             matrix:
                 node-version: [18.x, 20.x, 21.x]
                 os:
                     - ubuntu-latest
                     - windows-latest
+                include: 
+                    - os: ubuntu-latest
+                      node-version: 16.x
+                    - os: ubuntu-latest
+                      node-version: 21.x
+                      tag: experimental
         steps:
             - name: Steup node
               uses: actions/setup-node@v3
               with: 
                 node-version: ${{matrix.node-version}}
+            - name: fail if experiemtal
+              if: matrix.tag == 'experimental'
+              run: exit 1
             - name: Perform Tests
-              run: echo "Running Test ${{matrix.os}} and node ${{matrix.node-version}}"
+              run: |
+                echo "Running Test ${{matrix.os}} and node ${{matrix.node-version}}"
+                sleep 10
+            - name: Upload tests
+              run: echo "uploading tests"
