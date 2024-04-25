@@ -14,6 +14,7 @@ jobs:
         steps:
             - name: Steup node
               uses: actions/steup-node@v3
-              with: ${{matrix.node-version}}
+              with: 
+                node-version: ${{matrix.node-version}}
             - name: Perform Tests
               run: echo "Running Test ${{matrix.os}} and node ${{matrix.node-version}}"
