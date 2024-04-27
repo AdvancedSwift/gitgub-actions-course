@@ -43,3 +43,6 @@ jobs:
                 include: 
                     - color: red
                       shape: triange
+        steps:
+            - name: Dummy 
+              run: echo ${{matrix.color}}-${{matrix.shape}}-${{matrix.size}}
