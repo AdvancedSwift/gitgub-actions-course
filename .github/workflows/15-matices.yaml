@@ -41,13 +41,15 @@ jobs:
                 shape: [ciccle, square]
                 size: [small, large]
                 include: 
+                    - opacity: 50
                     - color: red
                       opacity: 75
                     - shape: square
                       opacity: 100
                     - color: red
                       shape: triange
-                    - opacity: 50
+                exclude:
+                    - opacity: 75
         steps:
             - name: Dummy 
               run: echo ${{matrix.color}}-${{matrix.shape}}-${{matrix.size}}-${{matrix.opacity}}
