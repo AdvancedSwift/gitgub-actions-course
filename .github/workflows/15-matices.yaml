@@ -43,6 +43,10 @@ jobs:
                 include: 
                     - opacity: 50
                     - color: red
+                      opacity: 75
+                    - shape: square
+                      opacity: 100
+                    - color: red
                       shape: triange
         steps:
             - name: Dummy 
