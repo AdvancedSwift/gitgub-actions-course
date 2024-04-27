@@ -33,7 +33,7 @@ jobs:
             - name: Upload tests
               run: echo "uploading tests"
     include-example:
-        name: ${{matrix.color}}-${{matrix.shape}}-${{matrix.size}}
+        name: ${{matrix.color}}-${{matrix.shape}}-${{matrix.size}}-${{matrix.opacity}}
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -41,8 +41,9 @@ jobs:
                 shape: [ciccle, square]
                 size: [small, large]
                 include: 
+                    - opacity: 50
                     - color: red
                       shape: triange
         steps:
             - name: Dummy 
-              run: echo ${{matrix.color}}-${{matrix.shape}}-${{matrix.size}}
+              run: echo ${{matrix.color}}-${{matrix.shape}}-${{matrix.size}}-${{matrix.opacity}}
